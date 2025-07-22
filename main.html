@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>F1 Database</title>
+    <link type="text/css" href="{{ url_for('static', path='styles.css') }}" rel="stylesheet"/>
+    <script type="module" src="{{ url_for('static', path='firebase-login.js') }}"></script>
+    <style>
+        body {
+            background-image: url('/static/image2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1.5rem;
+            margin: 1rem auto;
+            border-radius: 8px;
+            max-width: 1200px;
+        }
+
+        button, .btn {
+            background-color: #e10600; /* F1 red */
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.25rem;
+        }
+
+        button:hover, .btn:hover {
+            background-color: #b70500;
+        }
+
+        a {
+            color: #ffffff;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        input, select {
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>F1 Database</h1>
+        <div id="auth-buttons">
+            <div id="login-box" hidden="true">
+                <input type="email" id="email" placeholder="Email"><br/>
+                <input type="password" id="password" placeholder="Password"><br/>
+                <button id="login">Login</button>
+                <button id="sign-up">Sign Up</button>
+            </div>
+            <button id="sign-out" hidden="true">Sign Out</button>
+            
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Add Driver and Add Team Links -->
+        <section class="container">
+            <div class="button-group">
+                <a href="/add-driver" class="btn">Add Driver</a>
+                <a href="/add-team" class="btn">Add Team</a>
+            </div>
+        </section>
+
+        <!-- Query Drivers Section -->
+        <section class="container query-section">
+            <h2>Query Drivers</h2>
+            <form action="/query-drivers" method="post">
+                <select name="attribute">
+                    <option value="age">Age</option>
+                    <option value="pole_positions">Total Pole Positions</option>
+                    <option value="race_wins">Total Race Wins</option>
+                    <option value="points_scored">Total Points Scored</option>
+                    <option value="world_titles">Total World Titles</option>
+                    <option value="fastest_laps">Total Fastest Laps</option>
+                </select>
+                <select name="comparison">
+                    <option value="<">Less Than</option>
+                    <option value=">">Greater Than</option>
+                    <option value="=="">Equal To</option>
+                </select>
+                <input type="number" name="value" placeholder="Value" required><br>
+                <button type="submit">Query Drivers</button>
+            </form>
+        </section>
+
+        <!-- Query Teams Section -->
+        <section class="container query-section">
+            <h2>Query Teams</h2>
+            <form action="/query-teams" method="post">
+                <select name="attribute">
+                    <option value="year_founded">Year Founded</option>
+                    <option value="pole_positions">Total Pole Positions</option>
+                    <option value="race_wins">Total Race Wins</option>
+                    <option value="constructor_titles">Total Constructor Titles</option>
+                    <option value="previous_season_finish">Previous Season Finish</option>
+                </select>
+                <select name="comparison">
+                    <option value="<">Less Than</option>
+                    <option value=">">Greater Than</option>
+                    <option value="==">Equal To</option>
+                </select>
+                <input type="number" name="value" placeholder="Value" required><br>
+                <button type="submit">Query Teams</button>
+            </form>
+        </section>
+
+        <!-- Display Drivers Section -->
+        <section class="container display-section">
+            <h2>Drivers</h2>
+            <ul>
+                {% for driver in drivers %}
+                    <li>
+                        <a href="/driver/{{ driver.name | urlencode }}">{{ driver.name }} </a> (Age: {{ driver.age }}, Team: {{ driver.team }})
+                        {% if user_token %}
+                            <a href="/edit-driver/{{ driver.name | urlencode }}" class="btn" >Edit</a>
+                            <form action="/delete-driver/{{ driver.name | urlencode }}" method="post" style="display: inline;">
+                                <button type="submit" onclick="return confirm('Are you sure you want to delete this driver?')">Delete</button>
+                            </form>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Display Teams Section -->
+        <section class="container display-section">
+            <h2>Teams</h2>
+            <ul>
+                {% for team in teams %}
+                    <li>
+                        <a href="/team/{{ team.name | urlencode }}">{{ team.name }}</a> (Founded: {{ team.year_founded }})
+                        {% if user_token %}
+                            <a href="/edit-team/{{ team.name | urlencode }}" class="btn">Edit</a>
+                            <form action="/delete-team/{{ team.name | urlencode }}" method="post" style="display: inline;">
+                                <button type="submit" onclick="return confirm('Are you sure you want to delete this team?')">Delete</button>
+                            </form>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Compare Drivers Section -->
+        {% if user_token %}
+            <section class="container">
+                <h2>Compare</h2>
+                <div class="button-group">
+                    <a href="/compare-drivers" class="btn">Compare Drivers</a>
+                    <a href="/compare-teams" class="btn">Compare Teams</a>
+                </div>
+            </section>
+        {% endif %}
+    </main>
+</body>
+</html>

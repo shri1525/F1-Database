@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style> 
+        body {
+            background-image: url('/static/image2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+    </style>
+    <title>Team Details: {{ team.name }}</title>
+    <link type="text/css" href="{{ url_for('static', path='styles.css') }}" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <h1>Team Details: {{ team.name }}</h1>
+        <a href="/">Back to Home</a>
+    </header>
+
+    <main>
+        <section class="container">
+            <h2>{{ team.name }}</h2>
+            <ul>
+                <li>Year Founded: {{ team.year_founded }}</li>
+                <li>Total Pole Positions: {{ team.pole_positions }}</li>
+                <li>Total Race Wins: {{ team.race_wins }}</li>
+                <li>Total Constructor Titles: {{ team.constructor_titles }}</li>
+                <li>Previous Season Finish: {{ team.previous_season_finish }}</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

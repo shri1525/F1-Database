@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style> 
+        body {
+            background-image: url('/static/image2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+    </style>
+    <title>Edit Team</title>
+    <link type="text/css" href="{{ url_for('static', path='styles.css') }}" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <h1>Edit Team: {{ team.name }}</h1>
+        <a href="/">Back to Home</a>
+    </header>
+
+    <main>
+        <section class="container form-section">
+            <form action="/edit-team/{{ team.name | urlencode }}" method="post">
+                <input type="number" name="year_founded" placeholder="Year Founded" value="{{ team.year_founded }}" required><br>
+                <input type="number" name="pole_positions" placeholder="Total Pole Positions" value="{{ team.pole_positions }}" required><br>
+                <input type="number" name="race_wins" placeholder="Total Race Wins" value="{{ team.race_wins }}" required><br>
+                <input type="number" name="constructor_titles" placeholder="Total Constructor Titles" value="{{ team.constructor_titles }}" required><br>
+                <input type="number" name="previous_season_finish" placeholder="Previous Season Finish" value="{{ team.previous_season_finish }}" required><br>
+                <button type="submit">Update Team</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

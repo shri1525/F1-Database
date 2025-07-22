@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style> 
+        body {
+            background-image: url('/static/image2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+    </style>
+    <title>Query Drivers</title>
+</head>
+<body>
+    <h2>Query Drivers</h2>
+    <form action="/query-drivers" method="post">
+        <select name="attribute">
+            <option value="age">Age</option>
+            <option value="pole_positions">Total Pole Positions</option>
+            <option value="race_wins">Total Race Wins</option>
+            <option value="points_scored">Total Points Scored</option>
+            <option value="world_titles">Total World Titles</option>
+            <option value="fastest_laps">Total Fastest Laps</option>
+        </select>
+        <select name="comparison">
+            <option value="<">Less Than</option>
+            <option value=">">Greater Than</option>
+            <option value="==">Equal To</option>
+        </select>
+        <input type="number" name="value" placeholder="Value" required><br>
+        <button type="submit">Query Drivers</button>
+    </form>
+</body>
+</html>

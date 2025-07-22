@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style> 
+        body {
+            background-image: url('/static/image2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+    </style>
+    <title>Compare Drivers</title>
+    <link type="text/css" href="{{ url_for('static', path='styles.css') }}" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <h1>Compare Drivers</h1>
+        <a href="/">Back to Home</a>
+    </header>
+
+    <main>
+        <section class="container">
+            <form action="/compare-drivers" method="post">
+                <label for="driver1" style="color:red; font-weight: bold;">Driver 1:</label>
+                <select name="driver1" required>
+                    {% for driver in drivers %}
+                        <option value="{{ driver.name }}">{{ driver.name }}</option>
+                    {% endfor %}
+                </select><br>
+
+                <label for="driver2" style="color:red; font-weight: bold;"">Driver 2:</label>
+                <select name="driver2" required>
+                    {% for driver in drivers %}
+                        <option value="{{ driver.name }}">{{ driver.name }}</option>
+                    {% endfor %}
+                </select><br>
+
+                <button type="submit">Compare</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

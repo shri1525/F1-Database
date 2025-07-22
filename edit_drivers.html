@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style> 
+        body {
+            background-image: url('/static/image2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+    </style>
+    <title>Edit Driver: {{ driver.name }}</title>
+    <link type="text/css" href="{{ url_for('static', path='styles.css') }}" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <h1>Edit Driver: {{ driver.name }}</h1>
+        <a href="/">Back to Home</a>
+    </header>
+
+    <main>
+        <section class="container form-section">
+            <form action="/edit-driver/{{ driver.name | urlencode }}" method="post">
+                <!-- Driver Name (Read-Only) -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{ driver.name }}" readonly><br>
+
+                <!-- Age -->
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" value="{{ driver.age }}" required><br>
+
+                <!-- Total Pole Positions -->
+                <label for="pole_positions">Total Pole Positions:</label>
+                <input type="number" id="pole_positions" name="pole_positions" value="{{ driver.pole_positions }}" required><br>
+
+                <!-- Total Race Wins -->
+                <label for="race_wins">Total Race Wins:</label>
+                <input type="number" id="race_wins" name="race_wins" value="{{ driver.race_wins }}" required><br>
+
+                <!-- Total Points Scored -->
+                <label for="points_scored">Total Points Scored:</label>
+                <input type="number" id="points_scored" name="points_scored" value="{{ driver.points_scored }}" required><br>
+
+                <!-- Total World Titles -->
+                <label for="world_titles">Total World Titles:</label>
+                <input type="number" id="world_titles" name="world_titles" value="{{ driver.world_titles }}" required><br>
+
+                <!-- Total Fastest Laps -->
+                <label for="fastest_laps">Total Fastest Laps:</label>
+                <input type="number" id="fastest_laps" name="fastest_laps" value="{{ driver.fastest_laps }}" required><br>
+
+                <!-- Team -->
+                <label for="team">Team:</label>
+                <input type="text" id="team" name="team" value="{{ driver.team }}" required><br>
+
+                <!-- Submit Button -->
+                <button type="submit">Update Driver</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

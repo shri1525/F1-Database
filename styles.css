@@ -1,0 +1,388 @@
+/* General Styles */
+body {
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: #e10600; /* F1 Red */
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: "Times New Roman", Times, serif;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+#auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+#login-box input {
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#login-box button {
+    margin: 5px;
+    padding: 8px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#login-box button:hover, #sign-out:hover {
+    background-color: #111;
+}
+
+/* Main Container */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* Section Containers */
+.container {
+    background-color:rgba(0,0,0,7);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    margin-top: 0;
+    color: #e10600; /* F1 Red */
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    font-size: 22px;
+}
+
+/* Button Container Styles */
+.button-container {
+    display: flex;
+    gap: 1rem;
+    margin: 20px 0;
+}
+
+.button-container a {
+    text-decoration: none;
+}
+
+.button-container button {
+    padding: 0.5rem 1rem;
+    background-color: #e10600; /* F1 Red */
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.button-container button:hover {
+    background-color: #b00500;
+}
+
+/* Form Styles */
+.form-section input, .query-section input, .query-section select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.form-section button, .query-section button {
+    background-color: #e10600; /* F1 Red */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.form-section button:hover, .query-section button:hover {
+    background-color: #b00500;
+}
+
+/* Display Lists - Updated for both Drivers and Teams */
+.display-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.display-section li {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+    color: #333333;
+    font-size: 16px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.display-section li:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Hyperlink styles for both Drivers and Teams */
+.display-section li a {
+    color: #e10600; /* F1 Red for links */
+    max-width: 200px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+    flex-grow: 1;
+}
+
+.display-section li a:hover {
+    color: #b00500;
+    text-decoration: underline;
+}
+
+/* Action buttons container */
+.display-section .action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Action buttons (Edit/Delete) - Now identical */
+ 
+.display-section form button {
+    padding: 5px 13px;
+    font-size: 0.9em;
+    color: white;
+    background-color: #e10600;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+    white-space: nowrap;
+    
+    max-width: 60px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.display-section li .btn {
+    padding: 2px 5px;
+    font-size: 0.9em;
+    color: white;
+    background-color: #e10600;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+    white-space: nowrap;
+    
+    max-width: 60px;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.display-section .btn:hover,
+.display-section form button:hover {
+    color: white;
+    background-color: #b00500;
+}
+
+.display-section form {
+    display: inline;
+}
+
+/* Query Section */
+.query-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.query-section select {
+    margin-right: 10px;
+}
+
+/* Compare Section - Matched to other sections */
+.compare-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.compare-section h2 {
+    margin-top: 0;
+    color: #e10600;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    font-size: 22px;
+}
+
+.compare-section .button-container {
+    display: flex;
+    gap: 1rem;
+    margin: 20px 0;
+}
+
+.compare-section .button-container a {
+    text-decoration: none;
+}
+
+.compare-section .button-container button {
+    padding: 0.5rem 1rem;
+    background-color: #e10600;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.compare-section .button-container button:hover {
+    background-color: #b00500;
+}
+
+/* COMPARISON TABLE STYLES */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.comparison-table th {
+    background-color: #e10600; /* F1 Red */
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.comparison-table td {
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    color: #333;
+}
+
+/* HIGHLIGHTING RULES */
+.highlight-better {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+    position: relative;
+}
+
+.highlight-better::after {
+    
+    color: #28a745;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+/* ALTERNATING ROW COLORS */
+.comparison-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* HOVER EFFECTS */
+.comparison-table tr:hover td {
+    background-color: #e9ecef;
+}
+
+.comparison-table tr:hover td.highlight-better {
+    background-color: #c3e6cb !important;
+}
+
+.container {
+    color: white;
+    padding: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #auth-buttons {
+        margin-top: 10px;
+    }
+
+    .container {
+        color: white;
+        padding: 15px;
+    }
+
+    .form-section input, .query-section input, .query-section select {
+        width: 100%;
+    }
+    
+    .comparison-table {
+        font-size: 0.85em;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 8px 10px;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .display-section li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .display-section .action-buttons {
+        align-self: flex-end;
+    }
+}

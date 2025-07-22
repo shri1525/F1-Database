@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style> 
+        body {
+            background-image: url('/static/image2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+    </style>
+    <title>Add Driver</title>
+    <link type="text/css" href="{{ url_for('static', path='styles.css') }}" rel="stylesheet"/>
+    <script type="module" src="{{ url_for('static', path='firebase-login.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h1>Add Driver</h1>
+        <a href="/">Back to Home</a>
+    </header>
+
+    <main>
+        <section class="container form-section">
+            <form action="/add-driver" method="post">
+                <input type="text" name="name" placeholder="Name" required><br>
+                <input type="number" name="age" placeholder="Age" required><br>
+                <input type="number" name="pole_positions" placeholder="Total Pole Positions" required><br>
+                <input type="number" name="race_wins" placeholder="Total Race Wins" required><br>
+                <input type="number" name="points_scored" placeholder="Total Points Scored" required><br>
+                <input type="number" name="world_titles" placeholder="Total World Titles" required><br>
+                <input type="number" name="fastest_laps" placeholder="Total Fastest Laps" required><br>
+                <input type="text" name="team" placeholder="Team" required><br>
+                <button type="submit">Add Driver</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

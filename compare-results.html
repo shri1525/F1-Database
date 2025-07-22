@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style> 
+        body {
+            background-image: url('/static/image2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+    </style>
+    <title>Compare Drivers Result</title>
+    <link type="text/css" href="{{ url_for('static', path='styles.css') }}" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <h1>Compare Drivers Result</h1>
+        <a href="/">Back to Home</a>
+    </header>
+
+    <main>
+        <section class="container">
+            <h2>{{ driver1.name }} vs {{ driver2.name }}</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>Stat</th>
+                    <th>{{ driver1.name }}</th>
+                    <th>{{ driver2.name }}</th>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td class="{% if driver1.age < driver2.age %}highlight-better{% endif %}">
+                        {{ driver1.age }}
+                    </td>
+                    <td class="{% if driver2.age < driver1.age %}highlight-better{% endif %}">
+                        {{ driver2.age }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Pole Positions</td>
+                    <td class="{% if driver1.pole_positions > driver2.pole_positions %}highlight-better{% endif %}">
+                        {{ driver1.pole_positions }}
+                    </td>
+                    <td class="{% if driver2.pole_positions > driver1.pole_positions %}highlight-better{% endif %}">
+                        {{ driver2.pole_positions }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Race Wins</td>
+                    <td class="{% if driver1.race_wins > driver2.race_wins %}highlight-better{% endif %}">
+                        {{ driver1.race_wins }}
+                    </td>
+                    <td class="{% if driver2.race_wins > driver1.race_wins %}highlight-better{% endif %}">
+                        {{ driver2.race_wins }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Points Scored</td>
+                    <td class="{% if driver1.points_scored > driver2.points_scored %}highlight-better{% endif %}">
+                        {{ driver1.points_scored }}
+                    </td>
+                    <td class="{% if driver2.points_scored > driver1.points_scored %}highlight-better{% endif %}">
+                        {{ driver2.points_scored }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total World Titles</td>
+                    <td class="{% if driver1.world_titles > driver2.world_titles %}highlight-better{% endif %}">
+                        {{ driver1.world_titles }}
+                    </td>
+                    <td class="{% if driver2.world_titles > driver1.world_titles %}highlight-better{% endif %}">
+                        {{ driver2.world_titles }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Fastest Laps</td>
+                    <td class="{% if driver1.fastest_laps > driver2.fastest_laps %}highlight-better{% endif %}">
+                        {{ driver1.fastest_laps }}
+                    </td>
+                    <td class="{% if driver2.fastest_laps > driver1.fastest_laps %}highlight-better{% endif %}">
+                        {{ driver2.fastest_laps }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Team</td>
+                    <td>{{ driver1.team }}</td>
+                    <td>{{ driver2.team }}</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style> 
+        body {
+            background-image: url('/static/image2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+    </style>
+    <title>Compare Teams</title>
+    <link type="text/css" href="{{ url_for('static', path='styles.css') }}" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <h1>Compare Teams</h1>
+        <a href="/">Back to Home</a>
+    </header>
+
+    <main>
+        <section class="container">
+            <form action="/compare-teams" method="post">
+                <label for="team1">Team 1:</label>
+                <select name="team1" required>
+                    {% for team in teams %}
+                        <option value="{{ team.name }}">{{ team.name }}</option>
+                    {% endfor %}
+                </select><br>
+
+                <label for="team2">Team 2:</label>
+                <select name="team2" required>
+                    {% for team in teams %}
+                        <option value="{{ team.name }}">{{ team.name }}</option>
+                    {% endfor %}
+                </select><br>
+
+                <button type="submit">Compare</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
