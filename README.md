@@ -182,6 +182,8 @@ Navigate to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to start using the 
  
 ![WhatsApp Image 2025-08-01 at 00 22 29_119c2d8e](https://github.com/user-attachments/assets/8da40489-44d2-434f-b6db-9272c9b8ec15)
 
+![WhatsApp Image 2025-08-01 at 00 23 03_987b9c70](https://github.com/user-attachments/assets/aa3bfc0d-190a-4df5-a65a-5b0c5ce7a5cb)
+
 ## Contributing
 
 Open an issue or submit a PR!
