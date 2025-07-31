@@ -176,6 +176,12 @@ Navigate to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to start using the 
 - Provide environment variables and server setup according to your platform (GCP, Azure, Heroku, etc).
 - Use production server (e.g., Gunicorn) for scalable deployment.
 
+## Screenshot
+
+![WhatsApp Image 2025-08-01 at 00 20 43_e129423c](https://github.com/user-attachments/assets/4b66dbcf-59ed-4075-a5d2-b00b908919a8)
+ 
+![WhatsApp Image 2025-08-01 at 00 22 29_119c2d8e](https://github.com/user-attachments/assets/8da40489-44d2-434f-b6db-9272c9b8ec15)
+
 ## Contributing
 
 Open an issue or submit a PR!
